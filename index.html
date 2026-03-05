@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Анкета человека</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Форма данных о человеке</h1>
+      <form id="person-form" class="form" novalidate>
+        <label>
+          Имя
+          <input type="text" name="firstName" required placeholder="Иван" />
+        </label>
+
+        <label>
+          Фамилия
+          <input type="text" name="lastName" required placeholder="Иванов" />
+        </label>
+
+        <label>
+          Возраст
+          <input type="number" name="age" min="0" max="120" required placeholder="30" />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required placeholder="ivan@example.com" />
+        </label>
+
+        <label>
+          Город
+          <input type="text" name="city" placeholder="Москва" />
+        </label>
+
+        <label>
+          Коротко о себе
+          <textarea name="about" rows="4" placeholder="Люблю путешествия и спорт"></textarea>
+        </label>
+
+        <button type="submit">Сохранить</button>
+      </form>
+
+      <section id="result" class="result" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

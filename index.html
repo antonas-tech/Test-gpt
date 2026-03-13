@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseHabit — трекер привычек</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+
+  <main class="app-shell">
+    <section class="welcome-card" id="welcomeCard">
+      <p class="eyebrow">Персонализация</p>
+      <h1>Добро пожаловать в <span>PulseHabit</span></h1>
+      <p class="intro">Собери свой ритм дня: расскажи о себе, чтобы получить красивый и удобный трекер привычек.</p>
+
+      <form id="welcomeForm" class="welcome-form">
+        <label>
+          Как вас зовут?
+          <input type="text" name="name" placeholder="Например, Алина" required minlength="2" maxlength="30" />
+        </label>
+
+        <label>
+          Какая ваша главная цель?
+          <input type="text" name="goal" placeholder="Например, больше энергии" required maxlength="60" />
+        </label>
+
+        <label>
+          Сколько привычек хотите отслеживать?
+          <select name="targetHabits" required>
+            <option value="3">3 привычки</option>
+            <option value="5" selected>5 привычек</option>
+            <option value="7">7 привычек</option>
+          </select>
+        </label>
+
+        <button type="submit" class="btn-primary">Создать мой трекер</button>
+      </form>
+    </section>
+
+    <section class="tracker-card hidden" id="trackerCard">
+      <header class="tracker-header">
+        <div>
+          <p class="eyebrow">Ваш ритуал</p>
+          <h2 id="greetingTitle"></h2>
+          <p id="goalLine" class="goal-line"></p>
+        </div>
+        <button id="resetBtn" class="btn-ghost" type="button">Сбросить профиль</button>
+      </header>
+
+      <div class="progress-block">
+        <div class="progress-labels">
+          <span>Прогресс за сегодня</span>
+          <span id="progressText">0%</span>
+        </div>
+        <div class="progress-track">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <form id="habitForm" class="habit-form">
+        <input type="text" id="habitInput" placeholder="Добавьте привычку: «10 минут чтения»" maxlength="70" required />
+        <button class="btn-primary" type="submit">Добавить</button>
+      </form>
+
+      <ul id="habitList" class="habit-list"></ul>
+    </section>
+  </main>
+
+  <template id="habitTemplate">
+    <li class="habit-item">
+      <label>
+        <input type="checkbox" class="habit-check" />
+        <span class="custom-check"></span>
+        <span class="habit-text"></span>
+      </label>
+      <button class="delete-btn" type="button" aria-label="Удалить привычку">✕</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
